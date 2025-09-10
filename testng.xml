@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="PolicyService Test Suite" verbose="1" parallel="false">
+    <test name="Policy Model Tests">
+        <classes>
+            <class name="com.insureme.policyservice.testng.PolicyTestNGTest"/>
+        </classes>
+    </test>
+</suite>
