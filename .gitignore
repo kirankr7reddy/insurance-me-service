@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# OS & logs
+.DS_Store
+*.log
+
+# Maven build output (already partially covered, but safe to reinforce)
+target/
+*.iml
