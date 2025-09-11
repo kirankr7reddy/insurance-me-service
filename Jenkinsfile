@@ -17,8 +17,7 @@ pipeline {
 
     stage('Build & Test') {
       steps {
-       sh 'mvn -B clean package -DskipTests'
-
+        sh 'mvn -B clean package -DskipTests'
       }
     }
 
@@ -36,6 +35,13 @@ pipeline {
         }
       }
     }
+
+    stage('Deploy with Ansible') {
+      steps {
+        // Use the exact command you run manually
+        sh 'ansible-playbook -i ~/hosts.ini setup.yml'
+      }
+    }
   }
 
   post {
@@ -43,3 +49,4 @@ pipeline {
     failure { echo 'Pipeline failed ❌' }
   }
 }
+
