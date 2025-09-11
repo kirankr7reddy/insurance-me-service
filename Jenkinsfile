@@ -39,7 +39,7 @@ pipeline {
     stage('Deploy with Ansible') {
       steps {
         // Use the exact command you run manually
-        sh 'ansible-playbook -i ~/hosts.ini setup.yml'
+        sh 'ansible-playbook -i ${WORKSPACE}/ansible/hosts.ini ${WORKSPACE}/ansible/setup.yml'
       }
     }
   }
