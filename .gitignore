@@ -39,3 +39,7 @@ build/
 # Maven build output (already partially covered, but safe to reinforce)
 target/
 *.iml
+
+# Git & config files
+.git
+.gitignore
