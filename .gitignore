@@ -43,3 +43,8 @@ target/
 # Git & config files
 .git
 .gitignore
+
+# Terraform files
+*.tfstate
+*.tfstate.backup
+.terraform/
