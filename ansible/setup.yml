@@ -1,0 +1,37 @@
+---
+- name: Setup InsureMe app on hosts
+  hosts: all
+  become: true
+
+  vars:
+    docker_image: "kiranreddykr7/insureme-policy-service:latest"
+
+  tasks:
+    - name: Update apt cache (Debian/Ubuntu)
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Install required packages
+      apt:
+        name:
+          - docker.io
+          - python3-pip
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Ensure docker service is running
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Pull docker image
+      shell: docker pull {{ docker_image }}
+      register: pull_result
+
+    - name: Stop existing container (if any)
+      shell: docker rm -f insureme || true
+
+    - name: Run the container
+      shell: docker run -d --name insureme -p 8080:8080 {{ docker_image }}
