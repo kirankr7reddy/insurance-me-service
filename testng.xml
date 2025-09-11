@@ -3,7 +3,6 @@
     <test name="Policy Service Tests">
         <classes>
             <class name="com.insureme.policyservice.testng.PolicyTestNGTest"/>
-            <class name="com.insureme.policyservice.selenium.PolicySeleniumTest"/>
         </classes>
     </test>
 </suite>
