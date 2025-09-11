@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    DOCKERHUB_USER = 'yourdockerhubuser'
+    DOCKERHUB_USER = 'kiranreddykr7'
     IMAGE_NAME = 'insureme-policy-service'
     IMAGE_TAG = "latest"
     DOCKER_IMAGE = "${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}"
