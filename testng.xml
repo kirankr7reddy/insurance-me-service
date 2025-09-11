@@ -1,8 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="PolicyService Test Suite" verbose="1" parallel="false">
-    <test name="Policy Model Tests">
+    <test name="Policy Service Tests">
         <classes>
             <class name="com.insureme.policyservice.testng.PolicyTestNGTest"/>
+            <class name="com.insureme.policyservice.selenium.PolicySeleniumTest"/>
         </classes>
     </test>
 </suite>
