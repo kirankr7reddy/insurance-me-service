@@ -38,10 +38,9 @@ pipeline {
 
     stage('Deploy with Ansible') {
       steps {
-        sh """
-          ANSIBLE_HOST_KEY_CHECKING=False \
-          ansible-playbook -i ${WORKSPACE}/ansible/hosts.ini ${WORKSPACE}/ansible/setup.yml
-        """
+        sshagent(['ec2-ssh-key']) {
+          sh 'ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ansible/hosts.ini ansible/setup.yml'
+        }
       }
     }
   }
@@ -51,4 +50,5 @@ pipeline {
     failure { echo 'Pipeline failed ❌' }
   }
 }
+
 
