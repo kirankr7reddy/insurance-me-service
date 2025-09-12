@@ -38,8 +38,10 @@ pipeline {
 
     stage('Deploy with Ansible') {
       steps {
-        ANSIBLE_HOST_KEY_CHECKING=False \
-        sh 'ansible-playbook -i ${WORKSPACE}/ansible/hosts.ini ${WORKSPACE}/ansible/setup.yml'
+        sh """
+          ANSIBLE_HOST_KEY_CHECKING=False \
+          ansible-playbook -i ${WORKSPACE}/ansible/hosts.ini ${WORKSPACE}/ansible/setup.yml
+        """
       }
     }
   }
