@@ -38,7 +38,7 @@ pipeline {
 
     stage('Deploy with Ansible') {
       steps {
-        sh 'ansible-playbook -i ${WORKSPACE}/ansible/hosts.ini ${WORKSPACE}/ansible/setup.ym'
+        sh 'ansible-playbook -i ${WORKSPACE}/ansible/hosts.ini ${WORKSPACE}/ansible/setup.yml'
       }
     }
   }
